@@ -1,16 +1,59 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ImageHero from '../assets/img/image_menu.webp';
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import ImageHero from "../assets/img/image_menu.webp";
 ---
 
 <Layout>
 	<Header />
-	<main>
-		sqjjkdhsqdbhhsxbccshcjxlnclx
-		
-	</main>
+	<Hero title="Flying TapFest">
+		<div slot="image">
+			<Image src={ImageHero} alt="test" class="h-auto w-full" />
+		</div>
+	</Hero>
+	<div
+		class="bg-green-500 p-5 absolute top-100 left-1/2 transform -translate-x-1/2"
+		style="border-radius: 25px; margin:10px"
+	>
+		<p>6 - 7 Juin 2026</p>
+	</div>
+	<button
+		class="bg-green-500 p-5 absolute bottom-0 left-1/2 transform -translate-x-1/2"
+		style="border-radius: 25px; margin:10px"
+	>
+		<a href="billetterie">Réserver mes billets</a>
+	</button>
+	<button
+		class="outline-2 outline-offset-2 outline-solid outline-white text-white p-5 absolute top-190 left-1/2 transform -translate-x-1/2"
+		style="border-radius: 25px; margin:10px"
+	>
+		<a href="programme">Le programme</a>
+	</button>
+	<div class="grille">
+		<button
+			class="bg-black text-white p-3 col-start-1 col-end-5"
+			style="border-radius: 25px; margin:10px"
+		>
+			<a href="programme">Programme du Fying TapFest</a>
+			<p>Découvrez tous les spectacles et horaires</p>
+		</button>
+		<button
+			class="bg-black text-white p-3 col-start-5 col-end-9"
+			style="border-radius: 25px; margin:10px"
+		>
+			<a href="artistes">Les artistes</a>
+			<p>Découvrez tous les artistes sur places</p>
+		</button>
+		<button
+			class="bg-black text-white p-3 col-start-9 col-end-13"
+			style="border-radius: 25px; margin:10px"
+		>
+			<a href="infos">Infos pratiques</a>
+			<p>Tout savoir sur l'hebergement, les tarifs, l'accès</p>
+		</button>
+	</div>
 	<Footer />
-
 </Layout>
