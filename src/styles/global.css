@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme{
+    --font-text: "Montserrat", sans-serif;
+    --color-noir: oklch(0.1296 0.0269 244.15);
+    --color-vert: oklch(0.7252 0.1398 129.33);
+    --color-blanc: oklch(1 0 0);
+
+}
