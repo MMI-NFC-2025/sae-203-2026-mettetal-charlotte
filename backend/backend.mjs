@@ -28,20 +28,22 @@ export async function SceneById(id) {
     return records;
 }
 
-export async function allArtisteBySceneIdDate(id) {
-    const records = await pb.collection('Artiste').getFullList({ 
-    filter: `Scene.id = '${id_scene}'`, 
-    expand: 'Scene',
-    sort: 'date_presentation'});
-    return records;
+export async function allArtisteBySceneId(id) {
+    const events = await pb.collection('Artiste').getFullList({
+        filter: `scene.id = '${id}'`,
+        sort: 'date_presentation',
+        expand: 'scene'
+    });
+    return events;
 }
 
-export async function allArtisteBySceneNameDate(nom_scene) {
-    const records = await pb.collection('Artiste').getFullList({ 
-    filter: `scene.Nom = '${nom_scene}'`, 
-    expand: 'Scene',
-    sort: 'date_presentation' 
-}); return records;
+export async function allArtisteBySceneName(nom_scene) {
+    const events = await pb.collection('Artiste').getFullList({
+        filter: `scene.nom_scene = "${nom_scene}"`,
+        sort: 'date_presentation',
+        expand: 'scene'
+    });
+    return events;
 }
 
 export async function updateArtiste(id, updatedArtiste) {

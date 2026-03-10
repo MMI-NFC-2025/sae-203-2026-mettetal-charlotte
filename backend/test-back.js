@@ -1,4 +1,4 @@
-import { allArtisteSorted, allScenesSortedByName, AllArtisteSortedByName, ArtisteById, SceneById, allArtisteBySceneIdDate, allArtisteBySceneNameDate, updateArtiste } from './backend.mjs';
+import { allArtisteSorted, allScenesSortedByName, AllArtisteSortedByName, ArtisteById, SceneById, allArtisteBySceneId, allArtisteBySceneName, updateArtiste } from './backend.mjs';
 
 /* Retourne les artistes triés par ordre de date de présentation
 try {
@@ -45,15 +45,24 @@ try {
 }
 */
 
-
-const records = await allArtisteBySceneIdDate('lgmuvmngxqdlw34');
-console.log(JSON.stringify(records, null, 2));
-
-
 /*
-const records = await allArtisteBySceneNameDate('Principale');
-console.log(JSON.stringify(records, null, 2));
+try {
+    const records = await allArtisteBySceneId('lgmuvmngxqdlw34');
+    console.table(records);
+} catch (e) {
+    console.error(e);
+}
 */
+
+
+
+try {
+    const records = await allArtisteBySceneName("Secondaire");
+    console.table(records);
+} catch (e) {
+    console.error(e);
+}
+
 
 /*
 try{
