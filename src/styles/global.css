@@ -1,9 +1,65 @@
 @import "tailwindcss";
 
-@theme{
+@theme {
     --font-text: "Montserrat", sans-serif;
     --color-noir: oklch(0.1296 0.0269 244.15);
     --color-vert: oklch(0.7252 0.1398 129.33);
     --color-blanc: oklch(1 0 0);
 
+    --my-grid: repeat(12, minmax(0, 70px));
+}
+
+@layer base {
+    body {
+        @apply font-text;
+    }
+
+    h1 {
+        @apply text-4xl font-text;
+    }
+
+    h2 {
+        @apply text-3xl;
+    }
+    h3{
+        @apply text-2xl;
+    }
+}
+
+@layer components {
+    .grille {
+        @apply px-6 lg:grid lg:grid-cols-(--my-grid) lg:justify-center lg:gap-12;
+    }
+
+    .header-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .header-menu li {
+        margin: 0;
+    }
+
+    .header-menu a {
+        color: var(--color-blanc);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .header-top {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        padding: 0.25rem;
+    }
 }

@@ -2,10 +2,25 @@
 import Logo from "../assets/icon/logo.svg";
 ---
 
-<header style="background-color: var(--color-noir);">
-    <div>
-        <a href="/" aria-label="Accueil">
+<header
+    style="height:150px; background-color: var(--color-noir);"
+>
+    <div class="header-top">
+        <a href="/" aria-label="Accueil" class="header-logo">
             <Logo />
         </a>
+        <nav>
+            <ul class="header-menu">
+                <li><a href="/src/pages/festival">Le festival</a></li>
+                <li><a href="/src/pages/programme">Programme</a></li>
+                <li><a href="/src/pages/artistes">Artistes</a></li>
+                <li><a href="/src/pages/scenes">Scènes</a></li>
+                <li><a href="/src/pages/infos">Infos pratiques</a></li>
+                <li><a href="/src/pages/contact">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+    <h1 class="text-center" style="color: var(--color-blanc);">
+        Flying TapFest
+    </h1>
 </header>
