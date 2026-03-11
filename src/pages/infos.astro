@@ -2,13 +2,104 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Drone from "../assets/img/drone.webp";
+import Drone from "../assets/img/disneyinteldrone1.webp";
 ---
 
 <Layout titre="Informations pratiques">
     <Hero title="Infos pratiques">
         <div slot="image">
-            <Image src={Drone} alt="Des drones qui forment un oiseaux" />
+            <Image
+                src={Drone}
+                alt="Des drones qui forment un oiseaux"
+                class="h-auto w-full"
+            />
         </div>
-    </Hero></Layout
->
+    </Hero>
+    <div class="grille">
+        <h2 class="text-center p-2 col-start-4 col-end-10">
+            Tarifs & billeterie
+        </h2>
+        <div
+            class="outline-2 outline-offset-2 outline-solid; m-10 col-start-2 col-end-7"
+            style="border-radius: 25px;"
+        >
+            <h3 class="text-center">Pass 1 jour</h3>
+            <p class="text-center">valable 1 jour : samedi ou dimanche</p>
+            <h3 class="text-center">35 €</h3>
+            <div
+                class="bg-green-500 p-5 text-center"
+                style="border-radius: 25px; margin:10px"
+            >
+                Acheter
+            </div>
+        </div>
+        <div
+            class="outline-2 outline-offset-2 outline-solid; m-10 col-start-7 col-end-12"
+            style="border-radius: 25px;"
+        >
+            <h3 class="text-center">Pass 2 jour</h3>
+            <p class="text-center">valable samedi et dimanche</p>
+            <h3 class="text-center">60 €</h3>
+            <div
+                class="bg-green-500 p-5 text-center"
+                style="border-radius: 25px; margin:10px"
+            >
+                Acheter
+            </div>
+        </div>
+    </div>
+    <div class="grille">
+        <h2 class="text-center p-2 col-start-4 col-end-10">Hébergements</h2>
+        <div
+            class="outline-2 outline-offset-2 outline-solid; m-5 p-2 col-start-2 col-end-6"
+            style="border-radius: 25px"
+        >
+            <h3 class="text-center">Hotels</h3>
+            <p>
+                De nombreux hotels sont disponibles à proximité de parc Près la
+                Rose :
+            </p>
+            <ul>
+                <li>- Ibis budjet Montbéliard</li>
+                <li>- The original Boutique</li>
+                <li>- Kyriad Montbéliard</li>
+            </ul>
+        </div>
+        <div
+            class="outline-2 outline-offset-2 outline-solid; m-5 p-2 col-start-7 col-end-11"
+            style="border-radius: 25px"
+        >
+            <h3 class="text-center">Camping</h3>
+            <p>Pour une expérience unique découvrez le camping du parc.</p>
+        </div>
+    </div>
+    <div class="grille">
+        <h2 class="text-center p-2 col-start-4 col-end-10">Comment venir ?</h2>
+        <div
+            class="outline-2 outline-offset-2 m-5 p-2 col-start-1 col-end-6"
+            style="border-radius: 25px;"
+        >
+            <h3 class="text-center">En bus</h3>
+            <p class="p-2">
+                Le moyen le plus simple et rapide pour accéder au festival
+            </p>
+            <ul class="p-2">
+                <li>- ligne 2 direction Couteau Jouvent</li>
+                <li>- ligne 3 direction Couteau Jouvent</li>
+            </ul>
+        </div>
+        <div
+            class="outline-2 outline-offset-2 m-3 p-2 col-start-7 col-end-12"
+            style="border-radius: 25px;">
+            <h3 class="text-center">En voiture</h3>
+            <p class="p-2">
+                Plusieurs parking sont disponible à proximité du festival
+            </p>
+            <ul class="p-2">
+                <li>- parking parc Près la Rose</li>
+                <li>- parking du château</li>
+                <li>- parking de la gare</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
