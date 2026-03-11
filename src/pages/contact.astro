@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Danse from "../assets/img/danse.webp";
+import Email from "../assets/icon/e-mail.svg";
+import Telephone from "../assets/icon/telephone.svg";
+import Localisation from "../assets/icon/localisation.svg";
+import Instagram from "../assets/img/instagram.webp";
+import Facebook from "../assets/img/facebook.webp";
+import Envoi from "../assets/icon/envoi.svg";
+---
+
+<Layout>
+    <Hero title="Contactez-nous">
+        <div slot="image">
+            <Image
+                src={Danse}
+                alt="Des drones qui forment un oiseaux"
+                class="h-auto w-full"
+            />
+        </div>
+    </Hero>
+    <h2 class="text-center p-2">Nos coordonnées</h2>
+    <div class="flex items-center gap-2 p-2">
+        <Email />
+        <h3>Email</h3>
+        <p>flyingtapfest@gmail.com</p>
+    </div>
+    <div class="flex items-center gap-2 p-2">
+        <Telephone />
+        <h3>Téléphone</h3>
+        <p>06 54 87 54 87</p>
+    </div>
+    <div class="flex items-center gap-2 p-2">
+        <Localisation />
+        <h3>Adresse</h3>
+        <p>Parc Près la Rose Montbéliard</p>
+    </div>
+    <h2 class="text-center p-2">Nos réseaux sociaux</h2>
+    <div class="flex items-center gap-2 p-2">
+        <Image src={Instagram} alt="logo instagram" />
+        <Image src={Facebook} alt="logo facebook" />
+    </div>
+    <div
+        class="grille outline-2 outline-off-2 p-2 m-5"
+        style="border-radius: 25px;"
+    >
+        <h2 class="text-center col-start-4 col-end-10">
+            Formulaire de contact
+        </h2>
+        <form
+            class="col-start-4 col-end-10"
+        >
+            <h4 class="p-2">Nom</h4>
+            <div
+                class="outline-2 outline-offset-2 p-2 m-5"
+                style="border-radius: 15px"
+            >
+                <input
+                    type="text"
+                    name="nomComplet"
+                    placeholder="Ex : Dubois"
+                />
+            </div>
+            <h4 class="p-2">Email</h4>
+            <div
+                class="outline-2 outline-offset-2 p-2 m-5"
+                style="border-radius: 15px;"
+            >
+                <input
+                    type="text"
+                    name="email"
+                    placeholder="Ex : dubois@gmail.com"
+                />
+            </div>
+            <h4 class="p-2">Sujet</h4>
+            <div
+                class="outline-2 outline-offset-2 p-2 m-5"
+                style="border-radius: 15px"
+            >
+                <input type="text" name="sujet" placeholder="Votre question" />
+            </div>
+            <h4 class="p-2">Message</h4>
+            <div
+                class="outline-2 outline-offset-2 p-2 m-5"
+                style="border-radius: 15px"
+            >
+                <input
+                    type="text"
+                    name="message"
+                    placeholder="Ex : Votre message"
+                />
+            </div>
+            <button class="bg-green-500 p-5 col-start-5 col-end-10" style="border-radius: 25px">
+                <a class="inline-flex items-center gap-2 justify-center">
+                    <Envoi />
+                    <span>Envoyer</span>
+                </a>
+            </button>
+        </form>
+    </div>
+</Layout>
