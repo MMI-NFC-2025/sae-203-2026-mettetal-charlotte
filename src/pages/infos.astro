@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Drone from "../assets/img/drone.webp";
+---
+
+<Layout titre="Informations pratiques">
+    <Hero title="Infos pratiques">
+        <div slot="image">
+            <Image src={Drone} alt="Des drones qui forment un oiseaux" />
+        </div>
+    </Hero></Layout
+>

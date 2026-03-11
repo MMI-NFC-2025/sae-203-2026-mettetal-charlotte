@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import ImageFestival from "../assets/img/concert.webp";
 import Logo from "../assets/icon/logo.svg";
@@ -10,6 +8,9 @@ import EquipeLogo from "../assets/icon/icon.svg";
 import ImageMarie from "../assets/img/team_img_031.webp";
 import ImageLuis from "../assets/img/team_img_041.webp";
 import ImageMaxime from "../assets/img/team_img_021.webp";
+import ImageMains from "../assets/img/mains.webp";
+import Ecologie from "../assets/img/ecologie.webp";
+import Accessibilite from "../assets/img/Accessibilite.webp";
 ---
 
 <Layout titre="Festival">
@@ -51,18 +52,81 @@ import ImageMaxime from "../assets/img/team_img_021.webp";
                 <EquipeLogo />
                 <h2>Notre équipe</h2>
             </div>
-            <h3 class="p-2">
-                Découvrez notre équipe dévouée de passionnés<h3></h3>
-            </h3>
-            <div class="p-5">
-                <Image src={ImageMarie} alt="Marie Collin " />
-            </div>
-            <div class="p-5">
-                <Image src={ImageLuis} alt="Luis Miguel" />
-            </div>
-            <div class="p-5">
-                <Image src={ImageMaxime} alt="Maxime Julio" />
+            <h3 class="p-5 text-center">Découvrez notre équipe dévouée de passionnés</h3>
+            <div class="flex items-start justify-center gap-10 p-5">
+                <div class="text-center">
+                    <Image
+                        src={ImageMarie}
+                        alt="Marie Collin"
+                        class="h-48 w-48"
+                    />
+                    <p>
+                        Marie Collin
+                        <br />Directrice artistique
+                    </p>
+                </div>
+                <div class="text-center">
+                    <Image
+                        src={ImageLuis}
+                        alt="Luis Miguel"
+                        class="h-48 w-48"
+                    />
+                    <p>
+                        Luis Miguel
+                        <br />Directeur technique
+                    </p>
+                </div>
+                <div class="text-center">
+                    <Image
+                        src={ImageMaxime}
+                        alt="Maxime Julio"
+                        class="h-48 w-48"
+                    />
+                    <p>
+                        Maxime Julio
+                        <br />Responsable communication
+                    </p>
+                </div>
             </div>
         </div>
-    </main></Layout
->
+        <div class="flex items-center justify-center gap-3 p-2">
+            <Image
+                src={ImageMains}
+                alt="mains qui forment un coeur"
+                class="h-20 w-20"
+            />
+            <h3>Nos valeurs</h3>
+        </div>
+        <div class="bg-green-100 m-10" style="border-radius: 15px;">
+            <div class="flex items-center justify-center gap-3 p-2">
+                <Image src={Ecologie} alt="terre" class="h-20 w-20" />
+                <h3>Écologie</h3>
+            </div>
+            <h4 class="m-2 text-center">Un festival éco-responsable</h4>
+            <p class="p-2">
+                <b>Nos objectifs :</b>
+                <br />Réduire au maximum l'impact environnemental du festival.
+                Encourager le tri sélectif et la réduction des déchets. Limiter
+                les consommations d'énergie (notamment pour les drones et les
+                éclairage). Sensibiliser le public et les artistes à des
+                pratiques durables.
+            </p>
+        </div>
+        <div class="bg-gray-200 m-10" style="border-radius: 15px;">
+            <div class="flex items-center justify-center g-3 p-2">
+                <Image src={Accessibilite} alt="test" class="h-20 w-20"/>
+                <h3>Accessibilité</h3>
+            </div>
+            <h4 class="m-2 text-center">Un festival qui se veut accessible à tous</h4>
+            <p class="p-2">Notre festival est ouverts à tous, avec des tarifs adaptés et des espaces accessibles
+                pour permettre au plus grand nombre de découvrir cet art. 
+        </div>
+        <div class="bg-black m-10" style="border-radius: 15px">
+            <h3 class="m-2 text-white text-center p-2">Thématique</h3>
+            <p class="text-white p-2">Le Flying TapFest célèbre la rencontre entre le rythme des claquettes et la danse aérienne des drones.
+                Deux univers se répondent : le son du sol dialogue avec la lumière du ciel, créant une expérience artistique unique
+                et surprenante. 
+            </p>
+        </div>
+    </main>
+</Layout>
