@@ -53,13 +53,12 @@
     .header-top {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 25rem;
         width: 100%;
     }
 
     .header-logo {
         display: flex;
         align-items: center;
-        padding: 0.25rem;
     }
 }

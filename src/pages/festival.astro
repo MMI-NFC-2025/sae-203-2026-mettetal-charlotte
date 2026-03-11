@@ -1,7 +1,68 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import ImageFestival from "../assets/img/concert.webp";
+import Logo from "../assets/icon/logo.svg";
+import EquipeLogo from "../assets/icon/icon.svg";
+import ImageMarie from "../assets/img/team_img_031.webp";
+import ImageLuis from "../assets/img/team_img_041.webp";
+import ImageMaxime from "../assets/img/team_img_021.webp";
 ---
-<Layout>
-</Layout>
+
+<Layout titre="Festival">
+    <Hero title="Le Flying TapFest">
+        <div slot="image">
+            <Image src={ImageFestival} alt="test" class="h-auto w-full" />
+        </div>
+    </Hero>
+    <main>
+        <div class="flex items-center justify-center gap-3 p-2">
+            <Logo class="h-24 w-24" />
+            <h2>Notre histoire</h2>
+        </div>
+        <div class="p-2">
+            <p>
+                Le flying TapFest est né d'une idée audacieuse : réunir deux
+                univers que tout oppose en apparence; la danse de claquettes et
+                la technologie des drones pour créer un festival totalement
+                inédit. À l'origine du projet, une équipe de passionnés
+                cherchant à repousser les frontières de la créativité et à
+                imaginer une expérience artistique hors du commun.
+            </p>
+        </div>
+        <div class="p-2">
+            <p>
+                L'histoire commence avec une question simple : et si le rythme
+                des claquettes pouvait rencontrer le mouvement aérien des drones
+                ? De cette réflexion est née une vision : mêler la précision
+                percussive des danseurs avec la poésie visuelle de chorégraphies
+                aériennes. Le résultat : un festival hybride, moderne et
+                spectaculaire, où la tradition rencontre l'innovation.
+            </p>
+        </div>
+        <div
+            class="bg-black m-3 text-white"
+            style="border-radius: 15px; margin:10;"
+        >
+            <div class="flex items-center justify-center gap-5 p-2">
+                <EquipeLogo />
+                <h2>Notre équipe</h2>
+            </div>
+            <h3 class="p-2">
+                Découvrez notre équipe dévouée de passionnés<h3></h3>
+            </h3>
+            <div class="p-5">
+                <Image src={ImageMarie} alt="Marie Collin " />
+            </div>
+            <div class="p-5">
+                <Image src={ImageLuis} alt="Luis Miguel" />
+            </div>
+            <div class="p-5">
+                <Image src={ImageMaxime} alt="Maxime Julio" />
+            </div>
+        </div>
+    </main></Layout
+>

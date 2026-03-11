@@ -8,15 +8,14 @@ import ImageHero from "../assets/img/image_menu.webp";
 import Billet from "../assets/icon/logo_reservation.svg";
 ---
 
-<Layout>
-	<Header />
+<Layout titre="Accueil">
 	<Hero title="Flying TapFest">
 		<div slot="image">
 			<Image src={ImageHero} alt="test" class="h-auto w-full" />
 		</div>
 	</Hero>
 	<div
-		class="bg-green-500 p-5 absolute top-100 left-1/2 transform -translate-x-1/2"
+		class="bg-green-500 p-5 absolute top-65 left-1/2 transform -translate-x-1/2"
 		style="border-radius: 25px; margin:10px"
 	>
 		<p>6 - 7 Juin 2026</p>
@@ -62,5 +61,4 @@ import Billet from "../assets/icon/logo_reservation.svg";
 			<p>Tout savoir sur l'hebergement, les tarifs, l'accès</p>
 		</button>
 	</div>
-	<Footer />
 </Layout>
