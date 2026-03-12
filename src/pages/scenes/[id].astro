@@ -1,0 +1,42 @@
+---
+import PbImage from "../../components/PbImage.astro";
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import ImageScene from "../../assets/img/parc.webp";
+import { SceneById, allArtisteBySceneId } from "../../../backend/backend.mjs";
+import CardArtistes from "../../components/cardArtistes.astro";
+
+const { id } = Astro.params;
+const scene = await SceneById(id);
+const artistes = await allArtisteBySceneId(id)
+---
+
+<Layout>
+    <Hero title="La scène">
+        <div slot="image">
+            <Image src={ImageScene} alt="test" class="h-auto w-full" />
+        </div>
+    </Hero>
+    {
+    [scene].map((Scene)=>(
+        <h2 class="text-center">{Scene.nom_scene}</h2>
+        <p class="p-2">{Scene.description}</p>
+        <p class="p-2">{Scene.capacite} personnes</p>
+        <div style="display: flex; justify-content: center;">
+            <PbImage
+                record={Scene}
+                recordImage={Scene?.image?.[0] || Scene?.photo || ""}
+                style="max-width: 100%; height: auto;"
+            />
+        </div>
+    ))
+    }
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+        {artistes.map((artiste) => (
+            <div style="flex: 0 0 calc(50% - 16px); min-width: 220px;">
+                <CardArtistes {...artiste} />
+            </div>
+        ))}
+    </div>
+</Layout>

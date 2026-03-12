@@ -9,7 +9,7 @@ import { formatDate } from "../../../backend/backend.mjs";
 import { getSceneName } from "../../../backend/backend.mjs";
 
 const { id } = Astro.params;
-const artiste = await ArtisteById(id)
+const artiste = await ArtisteById(id);
 ---
 
 <Layout title="Artistes">
@@ -18,17 +18,28 @@ const artiste = await ArtisteById(id)
             <Image src={Claquettes} alt="test" class="h-auto w-full" />
         </div>
     </Hero>
-    {[artiste].map((Artiste)=>(
-            <h2 class="text-center p-2">{Artiste.prenom_artiste} {Artiste.nom_artiste}</h2>
-            <h3 class="p-2">{formatDate(Artiste.date_presentation)}</h3>
-            <h3 class="p-2">{getSceneName(Artiste)}</h3>
-            <PbImage
-            record={Artiste}
-            recordImage={Artiste?.image?.[0] || Artiste?.photo || ""}
-            width={400}
-            height={300}/>
-            <p class="p-2">{Artiste.description}</p>&
-        )
-    )
+    {
+        [artiste].map((Artiste) => (
+            <h2 class="text-center p-2">
+                        {Artiste.prenom_artiste} {Artiste.nom_artiste}
+                    </h2>
+                    <h3 class="p-2">{formatDate(Artiste.date_presentation)}</h3>
+                    <h3 class="p-2">{getSceneName(Artiste)}</h3>
+            <section class="flex flex-col md:flex-row items-start md:items-center p-4">
+                <div class="w-full md:w-1/2">
+                    <PbImage
+                        record={Artiste}
+                        recordImage={
+                            Artiste?.image?.[0] || Artiste?.photo || ""
+                        }
+                        width={400}
+                        height={300}
+                    />
+                </div>
+                <div class="p-2">
+                    <p class="p-2">{Artiste.description}</p>
+                </div>
+            </section>
+        ))
     }
 </Layout>

@@ -2,23 +2,27 @@
 import PbImage from "../components/PbImage.astro";
 import { getSceneName } from "../../backend/backend.mjs";
 import { formatDate } from "../../backend/backend.mjs";
-const Artiste = Astro.props.artiste;
-console.log(Artiste);
+const artiste = Astro.props;
+console.log(artiste);
 ---
 
-<div
-    style="background-color: var(--color-vert); margin: 10px; padding: 10px; border-radius: 15px;"
->
-<h3 class="text-center">{Artiste.prenom_artiste} {Artiste.nom_artiste}</h3>
-    <ul>
-        <li>{formatDate(Artiste.date_presentation)}</li>
-        <li>{getSceneName(Artiste)}</li>
-        <PbImage
-            record={Artiste}
-            recordImage={Artiste?.image?.[0] || Artiste?.photo || ""}
-            width={400}
-            height={300}
-        />
-        <a href={`/artistes/${Artiste.id}`}>Voir plus</a>
-    </ul>
-</div>
+<a href={`/artistes/${artiste.id}`}>
+    <div
+        style="background-color: var(--color-vert); margin: 10px; padding: 10px; border-radius: 15px;"
+    >
+        <h3 class="text-center">
+            {artiste.prenom_artiste}
+            {artiste.nom_artiste}
+        </h3>
+        <ul>
+            <li>{formatDate(artiste.date_presentation)}</li>
+            <li>{getSceneName(artiste)}</li>
+            <PbImage
+                record={artiste}
+                recordImage={artiste?.image?.[0] || artiste?.photo || ""}
+                width={400}
+                height={300}
+            />
+        </ul>
+    </div>
+</a>

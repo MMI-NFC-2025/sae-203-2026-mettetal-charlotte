@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import ImageScene from "../../assets/img/parc.webp";
+import CardScene from "../../components/cardScene.astro";
+import { allScene } from "../../../backend/backend.mjs";
+
+const Scene = await allScene();
+console.log(Scene);
+---
+
+<Layout>
+    <Hero title="Les scènes">
+        <div slot="image">
+            <Image src={ImageScene} alt="test" class="h-auto w-full" />
+        </div>
+    </Hero>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        {Scene.map((scene) => <CardScene scene={scene} />)}
+    </div>
+</Layout>

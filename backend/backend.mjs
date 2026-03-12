@@ -5,11 +5,21 @@ export async function getImageUrl(record, recordImage) {
     return pb.files.getURL(record, recordImage);
 }
 
-export async function allArtiste(){
-    try{
+export async function allArtiste() {
+    try {
         let Artiste = await pb.collection('Artiste').getFullList({ expand: 'scene' });
         return Artiste;
-    }catch (error){
+    } catch (error) {
+        console.error("error allArtiste", error);
+        return null;
+    }
+}
+
+export async function allScene() {
+    try {
+        let Artiste = await pb.collection('Scene').getFullList({ expand: 'scene' });
+        return Artiste;
+    } catch (error) {
         console.error("error allArtiste", error);
         return null;
     }
@@ -21,18 +31,18 @@ export async function allArtisteSorted() {
 }
 
 
-export async function allScenesSortedByName(){
-    const records = await pb.collection('Scene').getFullList({ sort: 'nom_scene'});
+export async function allScenesSortedByName() {
+    const records = await pb.collection('Scene').getFullList({ sort: 'nom_scene' });
     return records;
 }
 
-export async function AllArtisteSortedByName(){
-    const records = await pb.collection('Artiste').getFullList({ sort: 'nom_artiste'});
+export async function AllArtisteSortedByName() {
+    const records = await pb.collection('Artiste').getFullList({ sort: 'nom_artiste' });
     return records;
 }
 
 export async function ArtisteById(id) {
-    const records = await pb.collection('Artiste').getOne(id);
+    const records = await pb.collection('Artiste').getOne(id, { expand: 'scene' });
     return records;
 }
 
@@ -75,9 +85,9 @@ const options = {
     day: "numeric",
     month: "long",
     year: "numeric",
-    //hour: "numeric",
-    //minute: "numeric",
-    //hour12: false,
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false,
     timeZone: "Europe/Paris",
 };
 

@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ImageProgramme from "../assets/img/drone.webp";
+import Telechargement from "../assets/icon/telechargement.svg";
+---
+
+<Layout>
+    <Hero title="Programme complet">
+        <div slot="image">
+            <Image src={ImageProgramme} alt="test" class="h-auto w-full" />
+        </div>
+    </Hero>
+    <div style="display: flex; justify-content: center;">
+        <button class="bg-green-500 p-5" style="border-radius: 25px; margin:10px; display: inline-flex; align-items: center; gap: 8px;">
+            <Telechargement />
+            <span>Télecharger le programme</span>
+        </button>
+    </div>
+    <div>
+        <h2 class="text-center">La programmation</h2>
+        <p class="p-2 text-center">
+            Début : Samedi 7 juin à 18h00
+            <br />Fin : Dimanche 8 juin à 00h00
+        </p>
+    </div>
+    <div class="bg-green-500 text-center p-5 m-10" style="border-radius: 25px">
+        Samedi 7 juin
+    </div>
+    <div
+        style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;"
+    >
+        <div
+            class="outline-2 outline-offset-2 p-2"
+            style="border-radius: 25px; flex: 1 1 calc(50% - 20px); min-width: 220px;"
+        >
+            <p>
+                Savion Glover - 18h00
+                <br />Scène Principale
+            </p>
+        </div>
+        <div
+            class="outline-2 outline-offset-2 p-2"
+            style="border-radius: 25px; flex: 1 1 calc(50% - 20px); min-width: 220px;"
+        >
+            <p>
+                Gregory Hines - 20h00
+                <br />Scène Principale
+            </p>
+        </div>
+        <div
+            class="outline-2 outline-offset-2 p-2"
+            style="border-radius: 25px; flex: 1 1 calc(50% - 20px); min-width: 220px;"
+        >
+            <p>
+                Brenda Bufalina - 18h00
+                <br />Scène Secondaire
+            </p>
+        </div>
+        <div
+            class="outline-2 outline-offset-2 p-2"
+            style="border-radius: 25px; flex: 1 1 calc(50% - 20px); min-width: 220px;"
+        >
+            <p>
+                Jason Samuel - 20h
+                <br />Scène Secondaire
+            </p>
+        </div>
+    </div>
+    <div class="bg-green-500 p-5 m-10 text-center" style="border-radius: 25px">
+        Dimanche 8 juin
+    </div>
+    <div
+        style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;"
+    >
+        <div
+            class="outline-2 outline-offset-2 p-2"
+            style="border-radius: 25px; flex: 1 1 calc(50% - 20px); min-width: 220px;"
+        >
+            <p>
+                Chloé Arnold - 18h00
+                <br />Scène Secondaire
+            </p>
+        </div>
+        <div
+            class="outline-2 outline-offset-2 p-2"
+            style="border-radius: 25px; flex: 1 1 calc(50% - 20px); min-width: 220px;"
+        >
+            <p>
+                Michelle Dorance - 20h00
+                <br />Scène Principale
+            </p>
+        </div>
+    </div>
+</Layout>
