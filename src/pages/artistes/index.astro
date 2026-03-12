@@ -6,8 +6,8 @@ import { allArtiste } from "../../../backend/backend.mjs";
 import CardArtistes from "../../components/cardArtistes.astro";
 import Claquettes from "../../assets/img/claquettes.webp";
 
-const Artiste = await allArtiste();
-console.log(Artiste);
+const artistes = await allArtiste();
+console.log(artistes);
 ---
 
 <Layout>
@@ -19,6 +19,6 @@ console.log(Artiste);
     <div
         style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start;"
     >
-        {Artiste.map((artiste) => <CardArtistes artiste={artiste} />)}
+        {artistes.map((artiste) => <CardArtistes {...artiste} />)}
     </div>
 </Layout>
