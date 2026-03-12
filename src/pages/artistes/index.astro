@@ -1,18 +1,24 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
 import { allArtiste } from "../../../backend/backend.mjs";
 import CardArtistes from "../../components/cardArtistes.astro";
+import Claquettes from "../../assets/img/claquettes.webp";
 
 const Artiste = await allArtiste();
 console.log(Artiste);
 ---
+
 <Layout>
-    <h2 class="text-center p-2">Découvrez les artistes qui seront présent au festival</h2>
-    <div>
-        {
-            Artiste.map((artiste)=>(
-                <CardArtistes artiste={artiste}/>
-            ))
-        }
+    <Hero title="Les artistes">
+        <div slot="image">
+            <Image src={Claquettes} alt="test" class="h-auto w-full" />
+        </div>
+    </Hero>
+    <div
+        style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start;"
+    >
+        {Artiste.map((artiste) => <CardArtistes artiste={artiste} />)}
     </div>
 </Layout>

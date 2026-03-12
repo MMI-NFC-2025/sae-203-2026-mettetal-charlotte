@@ -1,18 +1,34 @@
 ---
+import PbImage from "../../components/PbImage.astro";
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import Claquettes from "../../assets/img/claquettes.webp";
+import { ArtisteById } from "../../../backend/backend.mjs";
+import { formatDate } from "../../../backend/backend.mjs";
+import { getSceneName } from "../../../backend/backend.mjs";
 
 const { id } = Astro.params;
-let Artiste = await ArtisteById(id);
+const artiste = await ArtisteById(id)
 ---
 
-<Layout tilte="Artistes">
-    {
-        Artiste.map((artiste) =>(
-            <div>
-                <h2>{artiste.nom_artiste}
-                    {artiste.prenom_artiste}
-                </h2>
-            </div>
-        ))
+<Layout title="Artistes">
+    <Hero title="Les artistes">
+        <div slot="image">
+            <Image src={Claquettes} alt="test" class="h-auto w-full" />
+        </div>
+    </Hero>
+    {[artiste].map((Artiste)=>(
+            <h2 class="text-center p-2">{Artiste.prenom_artiste} {Artiste.nom_artiste}</h2>
+            <h3 class="p-2">{formatDate(Artiste.date_presentation)}</h3>
+            <h3 class="p-2">{getSceneName(Artiste)}</h3>
+            <PbImage
+            record={Artiste}
+            recordImage={Artiste?.image?.[0] || Artiste?.photo || ""}
+            width={400}
+            height={300}/>
+            <p class="p-2">{Artiste.description}</p>&
+        )
+    )
     }
 </Layout>
