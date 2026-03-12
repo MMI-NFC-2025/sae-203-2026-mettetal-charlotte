@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { allArtiste } from "../../../backend/backend.mjs";
+import CardArtistes from "../../components/cardArtistes.astro";
+
+const Artiste = await allArtiste();
+console.log(Artiste);
+---
+
+<Layout>
+    {
+        Artiste.map((artiste) => (
+            <CardArtistes artiste={artiste}/>
+        ))
+    }
+</Layout>

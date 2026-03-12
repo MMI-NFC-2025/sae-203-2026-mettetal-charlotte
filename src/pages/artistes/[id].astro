@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params;
+let Artiste = await ArtisteById(id);
+---
+
+<Layout tilte="Artistes">
+    {
+        Artiste.map((artiste) =>(
+            <div>
+                <h2>{artiste.nom_artiste}
+                    {artiste.prenom_artiste}
+                </h2>
+            </div>
+        ))
+    }
+</Layout>

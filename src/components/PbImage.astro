@@ -1,0 +1,17 @@
+---
+import { getImageUrl } from "../../backend/backend.mjs";
+import { Image } from "astro:assets";
+
+const { record, recordImage, width, heigth } = Astro.props;
+const imageURL = await getImageUrl(record, recordImage);
+---
+
+{
+    imageURL &&(
+        <Image
+        src={imageURL}
+        alt={record.nom_artiste || "Image"}
+        width={400}
+        height={300}/>
+    )
+}

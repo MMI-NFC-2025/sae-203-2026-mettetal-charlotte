@@ -1,0 +1,20 @@
+---
+import PbImage from "../components/PbImage.astro";
+const Artiste = Astro.props.artiste;
+console.log(Artiste);
+---
+
+<div class="backgroud-color: var(--color-vert)" style="margin:10px">
+    <ul>
+        <li>{Artiste.nom_artiste}</li>
+        <li>{Artiste.prenom_artiste}</li>
+        <li>{Artiste.date_presentation}</li>
+        <li>{Artiste.scene}</li>
+        <PbImage
+            recors={Artiste}
+            recordImage={Artiste.image}
+            width={400}
+            heigth={300}
+        />
+    </ul>
+</div>
