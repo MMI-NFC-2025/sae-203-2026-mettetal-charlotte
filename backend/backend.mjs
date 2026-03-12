@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-export const pb = new PocketBase('http://127.0.0.1:8090');
+export const pb = new PocketBase('https://flying-tapfest.charlottemettetal.fr:443');
 
 export async function getImageUrl(record, recordImage) {
     return pb.files.getURL(record, recordImage);
@@ -7,7 +7,7 @@ export async function getImageUrl(record, recordImage) {
 
 export async function allArtiste(){
     try{
-        let Artiste = await pb.collection('Artiste').getFullList();
+        let Artiste = await pb.collection('Artiste').getFullList({ expand: 'scene' });
         return Artiste;
     }catch (error){
         console.error("error allArtiste", error);
@@ -16,7 +16,7 @@ export async function allArtiste(){
 }
 
 export async function allArtisteSorted() {
-    const records = await pb.collection('Artiste').getFullList({ sort: 'date_presentation', });
+    const records = await pb.collection('Artiste').getFullList({ sort: 'date_presentation', expand: 'scene' });
     return records;
 }
 
@@ -57,6 +57,13 @@ export async function allArtisteBySceneName(nom_scene) {
         expand: 'scene'
     });
     return events;
+}
+
+export function getSceneName(artiste) {
+    const scene = artiste?.expand?.scene || artiste?.scene;
+    if (!scene) return "Scène inconnue";
+    if (typeof scene === "string") return scene;
+    return scene.nom_scene || scene.nom || "Scène inconnue";
 }
 
 export async function updateArtiste(id, updatedArtiste) {

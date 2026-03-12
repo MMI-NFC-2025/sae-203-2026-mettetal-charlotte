@@ -6,11 +6,13 @@ import CardArtistes from "../../components/cardArtistes.astro";
 const Artiste = await allArtiste();
 console.log(Artiste);
 ---
-
 <Layout>
-    {
-        Artiste.map((artiste) => (
-            <CardArtistes artiste={artiste}/>
-        ))
-    }
+    <h2 class="text-center p-2">Découvrez les artistes qui seront présent au festival</h2>
+    <div>
+        {
+            Artiste.map((artiste)=>(
+                <CardArtistes artiste={artiste}/>
+            ))
+        }
+    </div>
 </Layout>

@@ -1,20 +1,21 @@
 ---
 import PbImage from "../components/PbImage.astro";
+import { getSceneName } from "../../backend/backend.mjs";
 const Artiste = Astro.props.artiste;
 console.log(Artiste);
 ---
 
-<div class="backgroud-color: var(--color-vert)" style="margin:10px">
+<div style="background-color: var(--color-vert); margin: 10px; padding: 10px;">
     <ul>
-        <li>{Artiste.nom_artiste}</li>
-        <li>{Artiste.prenom_artiste}</li>
+        <li>{Artiste.prenom_artiste} {Artiste.nom_artiste}</li>
         <li>{Artiste.date_presentation}</li>
-        <li>{Artiste.scene}</li>
+        <li>{getSceneName(Artiste)}</li>
         <PbImage
-            recors={Artiste}
-            recordImage={Artiste.image}
+            record={Artiste}
+            recordImage={Artiste?.image?.[0] || Artiste?.photo || ""}
             width={400}
-            heigth={300}
+            height={300}
         />
+        <a href={`/artistes/${Artiste.id}`}>Voir plus</a>
     </ul>
 </div>

@@ -1,17 +1,21 @@
 ---
 import { getImageUrl } from "../../backend/backend.mjs";
-import { Image } from "astro:assets";
 
-const { record, recordImage, width, heigth } = Astro.props;
-const imageURL = await getImageUrl(record, recordImage);
+const { record, recordImage, width = 400, height = 300 } = Astro.props;
+const imageURL =
+    record && recordImage ? await getImageUrl(record, recordImage) : null;
 ---
 
 {
-    imageURL &&(
-        <Image
-        src={imageURL}
-        alt={record.nom_artiste || "Image"}
-        width={400}
-        height={300}/>
+    imageURL ? (
+        <img
+            src={imageURL}
+            alt={record?.nom_artiste || "photo"}
+            width={width}
+            height={height}
+            style="object-fit: cover; display: block; max-width: 100%;"
+        />
+    ) : (
+        <p style="font-size:0.9rem; color:#555;">Aucune image disponible</p>
     )
 }
